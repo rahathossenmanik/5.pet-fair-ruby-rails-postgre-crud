@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api'
+  mount Rswag::Api::Engine => '/api'
   # Character Routes
   get "/characters/getall", to: "character#index"
   get "/characters/getbyid/:id", to: "character#show"
