@@ -1,13 +1,12 @@
 class PetController < ApplicationController
   def index
     @pets = Pet.all
-    puts @pets
     render json: @pets, status: :ok
   end
 
   def show
     @pet = Pet.find(params[:id])
-    fresh_when etag: @pet
+    render json: @pet, status: :ok
   end
 
   def create
@@ -29,25 +28,21 @@ class PetController < ApplicationController
 
   def getDogs
     @pets = Pet.where("petTypeId": 1)
-    puts @pets
     render json: @pets, status: :ok
   end
 
   def getCats
     @pets = Pet.where("petTypeId": 2)
-    puts @pets
     render json: @pets, status: :ok
   end
 
   def getBirds
     @pets = Pet.where("petTypeId": 3)
-    puts @pets
     render json: @pets, status: :ok
   end
 
   def getReptiles
     @pets = Pet.where("petTypeId": 4)
-    puts @pets
     render json: @pets, status: :ok
   end
 

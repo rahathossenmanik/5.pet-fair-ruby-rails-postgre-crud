@@ -1,13 +1,12 @@
 class CharacterController < ApplicationController
   def index
     @characters = Character.all
-    puts @characters
     render json: @characters, status: :ok
   end
 
   def show
     @character = Character.find(params[:id])
-    fresh_when etag: @character
+    render json: @character, status: :ok
   end
 
   def create

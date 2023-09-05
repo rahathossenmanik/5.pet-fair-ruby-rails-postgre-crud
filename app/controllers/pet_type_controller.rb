@@ -1,13 +1,12 @@
 class PetTypeController < ApplicationController
   def index
     @petTypes = PetType.all
-    puts @petTypes
     render json: @petTypes, status: :ok
   end
 
   def show
     @petType = PetType.find(params[:id])
-    fresh_when etag: @petType
+    render json: @petType, status: :ok
   end
 
   def create
