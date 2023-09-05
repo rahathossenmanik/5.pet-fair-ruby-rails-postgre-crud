@@ -1,8 +1,4 @@
 class CharacterController < ApplicationController
-  def findAll
-    render json: {first_name: 'Sam', last_name: 'Thomas', genre: 'rock'}, status: :ok
-  end
-
   def index
     @characters = Character.all
     puts @characters
