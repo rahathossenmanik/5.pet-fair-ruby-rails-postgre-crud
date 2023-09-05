@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
- # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-
   # Character Routes
   get "/characters/getall", to: "character#index"
   get "/characters/getbyid/:id", to: "character#show"
@@ -23,4 +19,9 @@ Rails.application.routes.draw do
   post "/pets/create", to: "pet#create"
   put "/pets/update/:id", to: "pet#update"
   delete "/pets/delete/:id", to: "pet#destroy"
+  get "/pets/getalldog", to: "pet#getDogs"
+  get "/pets/getallcat", to: "pet#getCats"
+  get "/pets/getallbird", to: "pet#getBirds"
+  get "/pets/getallreptile", to: "pet#getReptiles"
+  put "/pets/love/:id", to: "pet#loveReact"
 end
